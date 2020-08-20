@@ -1,4 +1,4 @@
-package com.prography.myapplication.util;
+package com.prography.myapplication.mvc.util;
 
 import android.app.Activity;
 import android.view.WindowManager;

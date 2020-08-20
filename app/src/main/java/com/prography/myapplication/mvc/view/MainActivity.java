@@ -1,4 +1,4 @@
-package com.prography.myapplication.view;
+package com.prography.myapplication.mvc.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prography.myapplication.R;
-import com.prography.myapplication.util.Util;
+import com.prography.myapplication.mvc.util.Util;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // 이동한 좌표값을 맨 처음 뷰의 시작점 좌표 값에 더해 줌
                         float moveX = event.getX() - touchX;
                         float moveY = event.getY() - touchY;
+
                         v.setX(curX + moveX);
                         v.setY(curY + moveY);
                 }
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch (id){
 
-            
+
         }
     }
 }
