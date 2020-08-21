@@ -7,8 +7,3 @@
     <img width="200" src = "https://user-images.githubusercontent.com/25498573/90825356-c25f6f80-e373-11ea-898b-c69014922282.jpg"</img>
   </div>
   
-  ***
-1. mvc [ 구현 중 ]
-2. mvp
-3. mvvm
-
