@@ -1,4 +1,4 @@
-# HandlingEvent-DesignPattern-mvc-mvp-mvvm-
+# HandlingEvent
 디자인 패턴을 사용해 간단한 터치 이벤트와 클릭 이벤트를 통한 뷰 움직이기 
 
 
