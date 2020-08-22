@@ -1,12 +1,11 @@
-package com.prography.myapplication.mvc.util;
+package com.prography.myapplication.util;
 
 import android.app.Activity;
 import android.view.WindowManager;
 
 public class Util {
-    public static void noStatusBar(Activity activity, int layoutId){
+    public static void noStatusBar(Activity activity){
         activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        activity.setContentView(layoutId);
     }
 }

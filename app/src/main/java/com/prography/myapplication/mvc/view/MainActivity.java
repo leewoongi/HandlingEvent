@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.prography.myapplication.R;
-import com.prography.myapplication.mvc.util.Util;
+import com.prography.myapplication.mvc.model.MvcViewXY;
+import com.prography.myapplication.util.Util;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
@@ -17,14 +18,17 @@ import static android.view.MotionEvent.ACTION_UP;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private View view;
-    private View touchView;
+    private ViewGroup touchView;
+
     private float touchX;
     private float touchY;
+    private MvcViewXY viewXY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Util.noStatusBar(this, R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        Util.noStatusBar(this);
 
         Initialized();
 
@@ -80,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         v.setX(curX + moveX);
                         v.setY(curY + moveY);
+
+                        viewXY.updateXY(curX+moveX , curY+moveY);
                 }
                 return true;
             }
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         touchView = findViewById(R.id.touchView);
         view = findViewById(R.id.view);
 
+        viewXY = new MvcViewXY();
         findViewById(R.id.leftTop).setOnClickListener(this);
         findViewById(R.id.top).setOnClickListener(this);
         findViewById(R.id.rightTop).setOnClickListener(this);
@@ -103,13 +110,88 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.rightBottom).setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View v) {
 
         int id = v.getId();
+        float changeX;
+        float changeY;
         switch (id){
+            case R.id.leftTop :
+                changeX = viewXY.getViewX()-30;
+                changeY = viewXY.getViewY()-30;
 
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
 
+            case R.id.top :
+                changeX = viewXY.getViewX();
+                changeY = viewXY.getViewY()-30;
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            case R.id.rightTop :
+                changeX = viewXY.getViewX()+30;
+                changeY = viewXY.getViewY()-30;
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            case R.id.left:
+                changeX = viewXY.getViewX()-30;
+                changeY = viewXY.getViewY();
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            case R.id.right:
+                changeX = viewXY.getViewX()+30;
+                changeY = viewXY.getViewY();
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            case R.id.leftBottom :
+                changeX = viewXY.getViewX()-30;
+                changeY = viewXY.getViewY()+30;
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            case R.id.bottom:
+                changeX = viewXY.getViewX();
+                changeY = viewXY.getViewY()+30;
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            case R.id.rightBottom:
+                changeX = viewXY.getViewX()+30;
+                changeY = viewXY.getViewY()+30;
+
+                view.setX(changeX);
+                view.setY(changeY);
+                viewXY.updateXY(changeX, changeY);
+                break;
+
+            default:
+                break;
         }
     }
 }
