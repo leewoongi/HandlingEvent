@@ -8,11 +8,11 @@
   </div>
   
   
-  1. mvc 
+  1. mvc [ o ]
   
-  2. mvp 
+  2. mvp [ o ] 
   
-  3. mvvm
+  3. mvvm [ x ] 
   
   - 모델은 사각형의 x,y 좌표 값으로 설정
   
