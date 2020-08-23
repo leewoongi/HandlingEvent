@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvc.view.MainActivity">
+        <activity android:name=".mvc.view.MainActivity"/>
+        <activity android:name=".mvp.contract.view.MvpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

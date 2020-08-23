@@ -1,12 +1,15 @@
 package com.prography.myapplication.mvp.contract.presenter;
 
+import android.app.Activity;
+
 import com.prography.myapplication.R;
 import com.prography.myapplication.mvp.contract.MvpContract;
 import com.prography.myapplication.mvp.model.MvpViewXY;
+import com.prography.myapplication.util.Util;
 
 public class Presenter implements MvpContract.Presenter {
     private MvpContract.View view;
-    private MvpViewXY viewXY = new MvpViewXY();
+    private MvpViewXY viewXY;
 
     @Override
     public void setView(MvpContract.View view) {
@@ -14,76 +17,19 @@ public class Presenter implements MvpContract.Presenter {
     }
 
     @Override
-    public void onClick(int id) {
-        float changeX;
-        float changeY;
-        switch (id){
-            case R.id.leftTop :
-                changeX = viewXY.getViewX()-30;
-                changeY = viewXY.getViewY()-30;
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.top :
-                changeX = viewXY.getViewX();
-                changeY = viewXY.getViewY()-30;
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.rightTop :
-                changeX = viewXY.getViewX()+30;
-                changeY = viewXY.getViewY()-30;
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.left:
-                changeX = viewXY.getViewX()-30;
-                changeY = viewXY.getViewY();
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.right:
-                changeX = viewXY.getViewX()+30;
-                changeY = viewXY.getViewY();
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.leftBottom :
-                changeX = viewXY.getViewX()-30;
-                changeY = viewXY.getViewY()+30;
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.bottom:
-                changeX = viewXY.getViewX();
-                changeY = viewXY.getViewY()+30;
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            case R.id.rightBottom:
-                changeX = viewXY.getViewX()+30;
-                changeY = viewXY.getViewY()+30;
-
-                view.setPosition(changeX, changeY);
-                viewXY.updateXY(changeX, changeY);
-                break;
-
-            default:
-                break;
-        }
+    public void initModel(float x, float y) {
+        viewXY = new MvpViewXY(x,y);
+        view.setPosition(x,y);
     }
+
+    @Override
+    public void changeVIew(float x, float y) {
+        float changeX = viewXY.getViewX() + x;
+        float changeY = viewXY.getViewY() + y;
+
+        viewXY.updateXY(changeX, changeY);
+        view.setPosition(changeX, changeY);
+    }
+
+
 }

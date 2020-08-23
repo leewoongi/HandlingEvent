@@ -10,9 +10,6 @@ public class MvpViewXY {
         this.viewY = viewY;
     }
 
-    public MvpViewXY() {
-    }
-
     public float getViewX() {
         return viewX;
     }
@@ -25,12 +22,13 @@ public class MvpViewXY {
         return viewY;
     }
 
+    public void setViewY(float viewY) {
+        this.viewY = viewY;
+    }
+
     public void updateXY(float viewX, float viewY){
         this.viewX = viewX;
         this.viewY = viewY;
     }
 
-    public void setViewY(float viewY) {
-        this.viewY = viewY;
-    }
 }
